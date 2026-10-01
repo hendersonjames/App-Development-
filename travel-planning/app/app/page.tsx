@@ -1,0 +1,3 @@
+import Link from "next/link";
+
+export default function Home(){return <main className="shell"><p className="eyebrow">Travel Planning</p><h1>Plan the trip. Keep the details together.</h1><p className="muted">The first build is focused on a simple end-to-end trip workflow, starting with the Texas test trip.</p><div className="card"><h2>Foundation build</h2><p>Authentication and the secure trip data model are being connected first.</p><div className="actions"><Link className="button" href="/login">Sign in</Link></div></div></main>}
