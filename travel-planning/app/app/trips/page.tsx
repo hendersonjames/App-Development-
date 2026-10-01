@@ -1,0 +1,4 @@
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+
+export default async function Trips(){const supabase=await createClient();const {data}=await supabase.auth.getClaims();if(!data?.claims?.sub) redirect("/login");const {data:trips}=await supabase.from("trips").select("id,title,status,start_date,end_date,primary_destination").order("created_at",{ascending:false});return <main className="shell"><p className="eyebrow">Your trips</p><h1>Trips</h1><div className="card">{trips?.length?trips.map(t=><div key={t.id}><strong>{t.title}</strong><p className="muted">{t.primary_destination??"Destination not set"} · {t.status}</p></div>):<p>No trips yet. Creating the first trip is the next slice.</p>}</div></main>}

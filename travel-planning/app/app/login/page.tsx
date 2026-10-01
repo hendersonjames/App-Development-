@@ -1,0 +1,2 @@
+import { signIn, signUp } from "./actions";
+export default function Login(){return <main className="shell"><p className="eyebrow">Travel Planning</p><h1>Sign in</h1><form className="card"><label>Email<input name="email" type="email" required autoComplete="email"/></label><label>Password<input name="password" type="password" required minLength={8} autoComplete="current-password"/></label><div className="actions"><button formAction={signIn}>Sign in</button><button formAction={signUp}>Create account</button></div></form></main>}
